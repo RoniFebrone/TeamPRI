@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-900 text-gray-100 antialiased;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-blue-400;
+  }
+  
+  .gradient-bg {
+    background: linear-gradient(-45deg, #8b3aff, #ff00ff, #00ffff, #8b5cf6);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+}
+
