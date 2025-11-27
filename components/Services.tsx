@@ -2,38 +2,34 @@
 
 import { Palette, Code, Image, Smartphone } from 'lucide-react'
 import { useEffect, useState } from 'react'
-
-interface Service {
-  icon: React.ReactNode
-  title: string
-  description: string
-}
-
-const services: Service[] = [
-  {
-    icon: <Palette className="w-12 h-12" />,
-    title: 'Design UI/UX',
-    description: 'Criamos interfaces intuitivas e atraentes que proporcionam experiências memoráveis para seus usuários.',
-  },
-  {
-    icon: <Code className="w-12 h-12" />,
-    title: 'Desenvolvimento Web',
-    description: 'Soluções web modernas, rápidas e escaláveis usando as melhores tecnologias do mercado.',
-  },
-  {
-    icon: <Image className="w-12 h-12" />,
-    title: 'Identidade Visual',
-    description: 'Desenvolvemos marcas únicas e impactantes que comunicam a essência do seu negócio.',
-  },
-  {
-    icon: <Smartphone className="w-12 h-12" />,
-    title: 'Aplicações sob medida',
-    description: 'Aplicativos personalizados que atendem às necessidades específicas do seu negócio.',
-  },
-]
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Services() {
+  const { t } = useLanguage()
   const [isVisible, setIsVisible] = useState(false)
+
+  const services = [
+    {
+      icon: <Palette className="w-12 h-12" />,
+      title: t('services.uiux.title'),
+      description: t('services.uiux.description'),
+    },
+    {
+      icon: <Code className="w-12 h-12" />,
+      title: t('services.web.title'),
+      description: t('services.web.description'),
+    },
+    {
+      icon: <Image className="w-12 h-12" />,
+      title: t('services.branding.title'),
+      description: t('services.branding.description'),
+    },
+    {
+      icon: <Smartphone className="w-12 h-12" />,
+      title: t('services.custom.title'),
+      description: t('services.custom.description'),
+    },
+  ]
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -64,10 +60,10 @@ export default function Services() {
       <div className="max-w-7xl mx-auto">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
-            <span className="text-gradient">Nossos Serviços</span>
+            <span className="text-gradient">{t('services.title')}</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Soluções completas para transformar sua presença digital
+            {t('services.subtitle')}
           </p>
         </div>
 

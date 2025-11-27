@@ -1,0 +1,84 @@
+{
+  "hero": {
+    "title": "Team PRI",
+    "subtitle": "Agência de Design e Software",
+    "description": "Criamos experiências digitais que conectam marcas e pessoas.",
+    "cta": "Solicitar Orçamento"
+  },
+  "services": {
+    "title": "Nossos Serviços",
+    "subtitle": "Soluções completas para transformar sua presença digital",
+    "uiux": {
+      "title": "Design UI/UX",
+      "description": "Criamos interfaces intuitivas e atraentes que proporcionam experiências memoráveis para seus usuários."
+    },
+    "web": {
+      "title": "Desenvolvimento Web",
+      "description": "Soluções web modernas, rápidas e escaláveis usando as melhores tecnologias do mercado."
+    },
+    "branding": {
+      "title": "Identidade Visual",
+      "description": "Desenvolvemos marcas únicas e impactantes que comunicam a essência do seu negócio."
+    },
+    "custom": {
+      "title": "Aplicações sob medida",
+      "description": "Aplicativos personalizados que atendem às necessidades específicas do seu negócio."
+    }
+  },
+  "portfolio": {
+    "title": "Nossos Projetos",
+    "subtitle": "Conheça alguns dos trabalhos que desenvolvemos com paixão e dedicação",
+    "all": "Todos",
+    "designer": "Designer",
+    "landingPages": "Landing Pages",
+    "websites": "Websites",
+    "systems": "Sistemas"
+  },
+  "testimonials": {
+    "title": "O que dizem sobre nós",
+    "subtitle": "Depoimentos de clientes que confiaram na Team PRI"
+  },
+  "contact": {
+    "title": "Entre em Contato",
+    "subtitle": "Solicite um orçamento ou tire suas dúvidas. Estamos prontos para transformar suas ideias em realidade!",
+    "letsTalk": "Vamos conversar?",
+    "description": "Estamos sempre abertos para discutir novos projetos, ideias criativas ou oportunidades de fazer parte de suas ideias.",
+    "email": "Email",
+    "phone": "Telefone",
+    "location": "Localização",
+    "form": {
+      "name": "Nome completo",
+      "email": "Email",
+      "phone": "Telefone",
+      "service": "Tipo de serviço",
+      "servicePlaceholder": "Selecione um serviço",
+      "message": "Mensagem",
+      "messagePlaceholder": "Conte-nos sobre seu projeto...",
+      "submit": "Enviar Mensagem",
+      "submitting": "Enviando...",
+      "success": "Mensagem enviada com sucesso! Entraremos em contato em breve.",
+      "error": "Erro ao enviar mensagem. Tente novamente ou entre em contato diretamente."
+    },
+    "services": {
+      "designer": "Design UI/UX",
+      "landingPage": "Landing Page",
+      "website": "Website Completo",
+      "system": "Sistema sob medida",
+      "branding": "Identidade Visual",
+      "other": "Outro"
+    }
+  },
+  "footer": {
+    "description": "Criamos experiências digitais que conectam marcas e pessoas. Transformando ideias em realidade através de design e tecnologia.",
+    "navigation": "Navegação",
+    "home": "Início",
+    "services": "Serviços",
+    "portfolio": "Portfólio",
+    "contact": "Contato",
+    "social": "Redes Sociais",
+    "rights": "Todos os direitos reservados.",
+    "madeWith": "Feito com",
+    "by": "pela Team PRI"
+  }
+}
+

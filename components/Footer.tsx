@@ -7,10 +7,10 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   const menuItems = [
-    { label: 'Início', href: '/#home' },
-    { label: 'Serviços', href: '/#services' },
-    { label: 'Sobre', href: '/#about' },
-    { label: 'Contato', href: '/#contact' },
+    { label: 'Início', href: '#home' },
+    { label: 'Serviços', href: '#services' },
+    { label: 'Portfólio', href: '#portfolio' },
+    { label: 'Contato', href: '#contact' },
   ]
 
   const socialLinks = [

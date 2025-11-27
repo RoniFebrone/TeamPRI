@@ -2,9 +2,11 @@
 
 import { ArrowRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false)
+  const { t } = useLanguage()
 
   useEffect(() => {
     setIsVisible(true)
@@ -25,23 +27,26 @@ export default function Hero() {
       {/* Conteúdo principal */}
       <div className={`relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6">
-          <span className="text-gradient">Team PRI</span>
+          <span className="text-gradient">{t('hero.title')}</span>
           <br />
-          <span className="text-white">Agência de Design e Software</span>
+          <span className="text-white">{t('hero.subtitle')}</span>
         </h1>
         
         <p className="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-10 max-w-3xl mx-auto">
-          Criamos experiências digitais que conectam marcas e pessoas.
+          {t('hero.description')}
         </p>
 
         {/* Botão CTA */}
-        <button className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full overflow-hidden transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-pink-500/50">
+        <a
+          href="#contact"
+          className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full overflow-hidden transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-pink-500/50"
+        >
           <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-700 via-pink-700 to-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
           <span className="relative flex items-center gap-2">
-            Solicitar Orçamento
+            {t('hero.cta')}
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </span>
-        </button>
+        </a>
       </div>
 
       {/* Shape decorativo no canto */}

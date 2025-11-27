@@ -1,0 +1,84 @@
+{
+  "hero": {
+    "title": "Team PRI",
+    "subtitle": "Design and Software Agency",
+    "description": "We create digital experiences that connect brands and people.",
+    "cta": "Request Quote"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Complete solutions to transform your digital presence",
+    "uiux": {
+      "title": "UI/UX Design",
+      "description": "We create intuitive and attractive interfaces that provide memorable experiences for your users."
+    },
+    "web": {
+      "title": "Web Development",
+      "description": "Modern, fast and scalable web solutions using the best technologies on the market."
+    },
+    "branding": {
+      "title": "Visual Identity",
+      "description": "We develop unique and impactful brands that communicate the essence of your business."
+    },
+    "custom": {
+      "title": "Custom Applications",
+      "description": "Personalized applications that meet the specific needs of your business."
+    }
+  },
+  "portfolio": {
+    "title": "Our Projects",
+    "subtitle": "Check out some of the work we've developed with passion and dedication",
+    "all": "All",
+    "designer": "Designer",
+    "landingPages": "Landing Pages",
+    "websites": "Websites",
+    "systems": "Systems"
+  },
+  "testimonials": {
+    "title": "What they say about us",
+    "subtitle": "Testimonials from clients who trusted Team PRI"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Request a quote or ask your questions. We're ready to turn your ideas into reality!",
+    "letsTalk": "Let's talk?",
+    "description": "We are always open to discussing new projects, creative ideas or opportunities to be part of your ideas.",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "form": {
+      "name": "Full name",
+      "email": "Email",
+      "phone": "Phone",
+      "service": "Service type",
+      "servicePlaceholder": "Select a service",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your project...",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "success": "Message sent successfully! We'll get back to you soon.",
+      "error": "Error sending message. Please try again or contact us directly."
+    },
+    "services": {
+      "designer": "UI/UX Design",
+      "landingPage": "Landing Page",
+      "website": "Complete Website",
+      "system": "Custom System",
+      "branding": "Visual Identity",
+      "other": "Other"
+    }
+  },
+  "footer": {
+    "description": "We create digital experiences that connect brands and people. Turning ideas into reality through design and technology.",
+    "navigation": "Navigation",
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "social": "Social Media",
+    "rights": "All rights reserved.",
+    "madeWith": "Made with",
+    "by": "by Team PRI"
+  }
+}
+

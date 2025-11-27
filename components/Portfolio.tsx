@@ -1,9 +1,9 @@
 'use client'
 
-import { Palette, Globe, Code2, ExternalLink } from 'lucide-react'
+import { Palette, Globe, Code2, ExternalLink, Monitor } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
-type Category = 'all' | 'designer' | 'landing-pages' | 'sistemas'
+type Category = 'all' | 'designer' | 'landing-pages' | 'websites' | 'sistemas'
 
 interface Project {
   id: number
@@ -20,31 +20,23 @@ const projects: Project[] = [
   // Projetos de Designer
   {
     id: 1,
-    title: 'Identidade Visual - TechStart',
+    title: 'Identidade Visual - Aura Motors',
     category: 'designer',
-    description: 'Criação completa de identidade visual moderna e impactante para startup de tecnologia.',
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop',
+    description: 'Criação completa de identidade visual moderna e impactante para uma concessionária.',
+    image: '/IdentidadeVisual/AuraMotors.svg',
     link: '#',
     tags: ['Branding', 'Logo Design', 'UI/UX'],
   },
   {
     id: 2,
-    title: 'Redesign App Mobile',
+    title: 'Identidade Visual - LE CÉLESTE',
     category: 'designer',
-    description: 'Redesign completo de aplicativo mobile com foco em usabilidade e experiência do usuário.',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop',
+    description: 'Design completo de um web-site para um restaurante francês, responsivo com foco em usabilidade e experiência do usuário.',
+    image: '/IdentidadeVisual/LeCeleste.svg',
     link: '#',
     tags: ['Mobile Design', 'UI/UX', 'Prototipagem'],
   },
-  {
-    id: 3,
-    title: 'Sistema de Design',
-    category: 'designer',
-    description: 'Desenvolvimento de design system completo para garantir consistência visual.',
-    image: 'https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=800&h=600&fit=crop',
-    link: '#',
-    tags: ['Design System', 'Componentes', 'Documentação'],
-  },
+
   // Projetos de Landing Pages
   {
     id: 4,
@@ -57,56 +49,59 @@ const projects: Project[] = [
   },
   {
     id: 5,
-    title: 'Landing Page - E-commerce',
+    title: 'Landing Page - BoostMind',
     category: 'landing-pages',
-    description: 'Página de destino otimizada para e-commerce com foco em vendas e conversão.',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop',
+    description: 'Landing page moderna e impactante desenvolvida com foco em conversão, experiência do usuário e gerar valor para o produto vendido.',
+    image: '/BoostMind.gif',
     link: '#',
-    tags: ['React', 'E-commerce', 'SEO'],
+    tags: ['Next.js', 'TailwindCSS', 'Responsivo'],
   },
   {
     id: 6,
-    title: 'Landing Page - Produto Digital',
+    title: 'Landing Page - Minimalista',
     category: 'landing-pages',
-    description: 'Landing page impactante para lançamento de produto digital com animações modernas.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+    description: 'Design minimalista e elegante com foco em simplicidade e clareza visual.',
+    image: '/Minimalista.gif',
     link: '#',
-    tags: ['Animations', 'Performance', 'Modern'],
+    tags: ['Design Minimalista', 'Moderno', 'Responsivo'],
   },
-  // Projetos de Sistemas
+  // Projetos de Websites
   {
     id: 7,
-    title: 'Sistema de Gestão ERP',
-    category: 'sistemas',
-    description: 'Sistema completo de gestão empresarial com múltiplos módulos e integrações.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+    title: 'Aura Motors',
+    category: 'websites',
+    description: 'Site completo para concessionária de veículos com catálogo, busca avançada, visualizacao 3D de veículos e sistema de contato.',
+    image: '/AuraMotors.gif',
     link: '#',
-    tags: ['Full-stack', 'Node.js', 'PostgreSQL'],
+    tags: ['Next.js', 'Responsivo', 'E-commerce'],
   },
   {
     id: 8,
-    title: 'Plataforma de E-learning',
-    category: 'sistemas',
-    description: 'Plataforma completa de ensino online com videoaulas, exercícios e certificados.',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop',
+    title: 'Restaurante LE CÉLESTE ',
+    category: 'websites',
+    description: 'Site completo para restaurante com cardápio digital, sistema de reservas e galeria de fotos.',
+    image: '/Restaurante.gif',
     link: '#',
-    tags: ['React', 'Node.js', 'MongoDB'],
+    tags: ['React', 'Responsivo', 'UI/UX'],
   },
-  {
-    id: 9,
-    title: 'Sistema de Agendamento',
-    category: 'sistemas',
-    description: 'Sistema de agendamento online com calendário integrado e notificações automáticas.',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop',
-    link: '#',
-    tags: ['TypeScript', 'Next.js', 'Prisma'],
-  },
+  // Projetos de Sistemas
+  // {
+  //   id: 9,
+  //   title: 'Sistema de Gestão ERP',
+  //   category: 'sistemas',
+  //   description: '',
+  //   image: '',
+  //   link: '#',
+  //   tags: [],
+  // },
+
 ]
 
 const categories = [
   { id: 'all' as Category, label: 'Todos', icon: <Code2 className="w-5 h-5" /> },
   { id: 'designer' as Category, label: 'Designer', icon: <Palette className="w-5 h-5" /> },
   { id: 'landing-pages' as Category, label: 'Landing Pages', icon: <Globe className="w-5 h-5" /> },
+  { id: 'websites' as Category, label: 'Websites', icon: <Monitor className="w-5 h-5" /> },
   { id: 'sistemas' as Category, label: 'Sistemas', icon: <Code2 className="w-5 h-5" /> },
 ]
 

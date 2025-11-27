@@ -1,0 +1,84 @@
+{
+  "hero": {
+    "title": "Team PRI",
+    "subtitle": "Agencia de Diseño y Software",
+    "description": "Creamos experiencias digitales que conectan marcas y personas.",
+    "cta": "Solicitar Presupuesto"
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "subtitle": "Soluciones completas para transformar tu presencia digital",
+    "uiux": {
+      "title": "Diseño UI/UX",
+      "description": "Creamos interfaces intuitivas y atractivas que brindan experiencias memorables para tus usuarios."
+    },
+    "web": {
+      "title": "Desarrollo Web",
+      "description": "Soluciones web modernas, rápidas y escalables utilizando las mejores tecnologías del mercado."
+    },
+    "branding": {
+      "title": "Identidad Visual",
+      "description": "Desarrollamos marcas únicas e impactantes que comunican la esencia de tu negocio."
+    },
+    "custom": {
+      "title": "Aplicaciones a medida",
+      "description": "Aplicaciones personalizadas que satisfacen las necesidades específicas de tu negocio."
+    }
+  },
+  "portfolio": {
+    "title": "Nuestros Proyectos",
+    "subtitle": "Conoce algunos de los trabajos que hemos desarrollado con pasión y dedicación",
+    "all": "Todos",
+    "designer": "Diseñador",
+    "landingPages": "Landing Pages",
+    "websites": "Sitios Web",
+    "systems": "Sistemas"
+  },
+  "testimonials": {
+    "title": "Lo que dicen sobre nosotros",
+    "subtitle": "Testimonios de clientes que confiaron en Team PRI"
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "subtitle": "Solicita un presupuesto o resuelve tus dudas. ¡Estamos listos para convertir tus ideas en realidad!",
+    "letsTalk": "¿Hablamos?",
+    "description": "Siempre estamos abiertos a discutir nuevos proyectos, ideas creativas u oportunidades de ser parte de tus ideas.",
+    "email": "Correo",
+    "phone": "Teléfono",
+    "location": "Ubicación",
+    "form": {
+      "name": "Nombre completo",
+      "email": "Correo",
+      "phone": "Teléfono",
+      "service": "Tipo de servicio",
+      "servicePlaceholder": "Selecciona un servicio",
+      "message": "Mensaje",
+      "messagePlaceholder": "Cuéntanos sobre tu proyecto...",
+      "submit": "Enviar Mensaje",
+      "submitting": "Enviando...",
+      "success": "¡Mensaje enviado con éxito! Te contactaremos pronto.",
+      "error": "Error al enviar mensaje. Intenta nuevamente o contáctanos directamente."
+    },
+    "services": {
+      "designer": "Diseño UI/UX",
+      "landingPage": "Landing Page",
+      "website": "Sitio Web Completo",
+      "system": "Sistema a medida",
+      "branding": "Identidad Visual",
+      "other": "Otro"
+    }
+  },
+  "footer": {
+    "description": "Creamos experiencias digitales que conectan marcas y personas. Transformando ideas en realidad a través del diseño y la tecnología.",
+    "navigation": "Navegación",
+    "home": "Inicio",
+    "services": "Servicios",
+    "portfolio": "Portafolio",
+    "contact": "Contacto",
+    "social": "Redes Sociales",
+    "rights": "Todos los derechos reservados.",
+    "madeWith": "Hecho con",
+    "by": "por Team PRI"
+  }
+}
+

@@ -1,6 +1,6 @@
 # Team PRI — Agência de Design e Software
 
-Landing page moderna e elegante criada com Next.js, React e TailwindCSS.
+Nossa Landing page moderna e elegante criada com Next.js, React e TailwindCSS.
 
 ## 🚀 Tecnologias
 

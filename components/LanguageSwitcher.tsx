@@ -2,28 +2,30 @@
 
 import { Globe } from 'lucide-react'
 import { useState } from 'react'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { type Locale } from '@/lib/translations'
 
-type Language = 'pt' | 'en' | 'es'
-
-const languages: { code: Language; label: string; flag: string }[] = [
+const languages: { code: Locale; label: string; flag: string }[] = [
   { code: 'pt', label: 'Português', flag: '🇧🇷' },
   { code: 'en', label: 'English', flag: '🇺🇸' },
   { code: 'es', label: 'Español', flag: '🇪🇸' },
+  { code: 'fr', label: 'Français', flag: '🇫🇷' },
 ]
 
 export default function LanguageSwitcher() {
-  const [currentLang, setCurrentLang] = useState<Language>('pt')
+  const { locale, setLocale } = useLanguage()
   const [isOpen, setIsOpen] = useState(false)
 
-  // TODO: Implementar tradução real com i18n (next-intl ou similar)
-  const handleLanguageChange = (lang: Language) => {
-    setCurrentLang(lang)
+  const handleLanguageChange = (newLocale: Locale) => {
+    setLocale(newLocale)
     setIsOpen(false)
-    // Aqui você pode implementar a mudança de idioma real
-    // Por exemplo: router.push(router.pathname, router.asPath, { locale: lang })
+    // Salva no localStorage para persistir
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('locale', newLocale)
+    }
   }
 
-  const currentLanguage = languages.find((lang) => lang.code === currentLang)
+  const currentLanguage = languages.find((lang) => lang.code === locale)
 
   return (
     <div className="relative">
@@ -52,14 +54,14 @@ export default function LanguageSwitcher() {
                 key={lang.code}
                 onClick={() => handleLanguageChange(lang.code)}
                 className={`w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-gray-700 transition-colors duration-200 ${
-                  currentLang === lang.code
+                  locale === lang.code
                     ? 'bg-gradient-to-r from-purple-600/20 to-pink-600/20 border-l-2 border-purple-500'
                     : ''
                 }`}
               >
                 <span className="text-xl">{lang.flag}</span>
                 <span className="text-white text-sm font-medium">{lang.label}</span>
-                {currentLang === lang.code && (
+                {locale === lang.code && (
                   <span className="ml-auto text-purple-400">✓</span>
                 )}
               </button>
