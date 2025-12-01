@@ -1,7 +1,8 @@
 'use client'
 
-import { Palette, Globe, Code2, ExternalLink, Monitor } from 'lucide-react'
-import { useState, useEffect } from 'react'
+import { Palette, Globe, Code2, ExternalLink, Monitor, X, Maximize2 } from 'lucide-react'
+import { useState, useEffect, useMemo } from 'react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 type Category = 'all' | 'designer' | 'landing-pages' | 'websites' | 'sistemas'
 
@@ -15,52 +16,41 @@ interface Project {
   tags: string[]
 }
 
-// Projetos de exemplo - você pode substituir pelos projetos reais
-const projects: Project[] = [
+// Estrutura base dos projetos (sem textos traduzidos)
+const projectsBase: Omit<Project, 'title' | 'description'>[] = [
   // Projetos de Designer
   {
     id: 1,
-    title: 'Identidade Visual - Aura Motors',
     category: 'designer',
-    description: 'Criação completa de identidade visual moderna e impactante para uma concessionária.',
     image: '/IdentidadeVisual/AuraMotors.svg',
     link: '#',
     tags: ['Branding', 'Logo Design', 'UI/UX'],
   },
   {
     id: 2,
-    title: 'Identidade Visual - LE CÉLESTE',
     category: 'designer',
-    description: 'Design completo de um web-site para um restaurante francês, responsivo com foco em usabilidade e experiência do usuário.',
     image: '/IdentidadeVisual/LeCeleste.svg',
     link: '#',
     tags: ['Mobile Design', 'UI/UX', 'Prototipagem'],
   },
-
   // Projetos de Landing Pages
   {
     id: 4,
-    title: 'Landing Page - CloudDesk SaaS Plataforma ',
     category: 'landing-pages',
-    description: 'Uma landing page moderna e completa para o SaaS fictício CloudDesk, construída com Next.js 14, TailwindCSS e Framer Motion.',
     image: '/CloudDesk2.gif',
     link: 'https://lp-cloud-desk-fic.vercel.app',
     tags: ['Next.js', 'TailwindCSS', 'Responsivo'],
   },
   {
     id: 5,
-    title: 'Landing Page - BoostMind',
     category: 'landing-pages',
-    description: 'Landing page moderna e impactante desenvolvida com foco em conversão, experiência do usuário e gerar valor para o produto vendido.',
     image: '/BoostMind.gif',
     link: '#',
     tags: ['Next.js', 'TailwindCSS', 'Responsivo'],
   },
   {
     id: 6,
-    title: 'Landing Page - Minimalista',
     category: 'landing-pages',
-    description: 'Design minimalista e elegante com foco em simplicidade e clareza visual.',
     image: '/Minimalista.gif',
     link: '#',
     tags: ['Design Minimalista', 'Moderno', 'Responsivo'],
@@ -68,47 +58,51 @@ const projects: Project[] = [
   // Projetos de Websites
   {
     id: 7,
-    title: 'Aura Motors',
     category: 'websites',
-    description: 'Site completo para concessionária de veículos com catálogo, busca avançada, visualizacao 3D de veículos e sistema de contato.',
     image: '/AuraMotors.gif',
     link: '#',
     tags: ['Next.js', 'Responsivo', 'E-commerce'],
   },
   {
     id: 8,
-    title: 'Restaurante LE CÉLESTE ',
     category: 'websites',
-    description: 'Site completo para restaurante com cardápio digital, sistema de reservas e galeria de fotos.',
     image: '/Restaurante.gif',
     link: '#',
     tags: ['React', 'Responsivo', 'UI/UX'],
   },
-  // Projetos de Sistemas
-  // {
-  //   id: 9,
-  //   title: 'Sistema de Gestão ERP',
-  //   category: 'sistemas',
-  //   description: '',
-  //   image: '',
-  //   link: '#',
-  //   tags: [],
-  // },
-
-]
-
-const categories = [
-  { id: 'all' as Category, label: 'Todos', icon: <Code2 className="w-5 h-5" /> },
-  { id: 'designer' as Category, label: 'Designer', icon: <Palette className="w-5 h-5" /> },
-  { id: 'landing-pages' as Category, label: 'Landing Pages', icon: <Globe className="w-5 h-5" /> },
-  { id: 'websites' as Category, label: 'Websites', icon: <Monitor className="w-5 h-5" /> },
-  { id: 'sistemas' as Category, label: 'Sistemas', icon: <Code2 className="w-5 h-5" /> },
 ]
 
 export default function Portfolio() {
+  const { t, locale } = useLanguage()
   const [activeCategory, setActiveCategory] = useState<Category>('all')
   const [isVisible, setIsVisible] = useState(true) // Inicia como true para garantir visibilidade
-  const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects)
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+
+  // Projetos com traduções aplicadas (atualiza quando o idioma muda)
+  const projects = useMemo(() => {
+    return projectsBase.map((project) => {
+      const translatedLink = t(`portfolio.projects.${project.id}.link`)
+      return {
+        ...project,
+        title: t(`portfolio.projects.${project.id}.title`),
+        description: t(`portfolio.projects.${project.id}.description`),
+        // Usa o link da tradução se existir, senão usa o link do projectsBase
+        link: translatedLink && translatedLink !== `portfolio.projects.${project.id}.link` 
+          ? translatedLink 
+          : project.link,
+      }
+    })
+  }, [t, locale])
+
+  const [filteredProjects, setFilteredProjects] = useState<Project[]>([])
+
+  const categories = [
+    { id: 'all' as Category, label: t('portfolio.all'), icon: <Code2 className="w-5 h-5" /> },
+    { id: 'designer' as Category, label: t('portfolio.designer'), icon: <Palette className="w-5 h-5" /> },
+    { id: 'landing-pages' as Category, label: t('portfolio.landingPages'), icon: <Globe className="w-5 h-5" /> },
+    { id: 'websites' as Category, label: t('portfolio.websites'), icon: <Monitor className="w-5 h-5" /> },
+    { id: 'sistemas' as Category, label: t('portfolio.systems'), icon: <Code2 className="w-5 h-5" /> },
+  ]
 
   useEffect(() => {
     // Define como visível após um pequeno delay para garantir renderização
@@ -140,13 +134,34 @@ export default function Portfolio() {
     }
   }, [])
 
+  // Atualiza os projetos filtrados quando o idioma ou categoria mudam
   useEffect(() => {
     if (activeCategory === 'all') {
       setFilteredProjects(projects)
     } else {
       setFilteredProjects(projects.filter((project) => project.category === activeCategory))
     }
-  }, [activeCategory])
+  }, [activeCategory, projects])
+
+  // Fechar modal com ESC
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && selectedProject) {
+        setSelectedProject(null)
+      }
+    }
+
+    if (selectedProject) {
+      document.addEventListener('keydown', handleEscape)
+      // Previne scroll do body quando modal está aberto
+      document.body.style.overflow = 'hidden'
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape)
+      document.body.style.overflow = 'unset'
+    }
+  }, [selectedProject])
 
   return (
     <section id="portfolio" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
@@ -154,10 +169,10 @@ export default function Portfolio() {
         {/* Cabeçalho */}
         <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-100 translate-y-0'}`}>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
-            <span className="text-gradient">Nossos Projetos</span>
+            <span className="text-gradient">{t('portfolio.title')}</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Conheça alguns dos trabalhos que desenvolvemos com paixão e dedicação
+            {t('portfolio.subtitle')}
           </p>
         </div>
 
@@ -169,8 +184,8 @@ export default function Portfolio() {
               onClick={() => setActiveCategory(category.id)}
               className={`group flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                 activeCategory === category.id
-                  ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/50 scale-105'
-                  : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'
+                  ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/50 scale-105'
+                  : 'glass-effect text-gray-400 hover:text-white border border-white/10'
               }`}
             >
               <span className={activeCategory === category.id ? 'text-white' : 'text-gray-400 group-hover:text-white'}>
@@ -185,17 +200,24 @@ export default function Portfolio() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.length === 0 ? (
             <div className="col-span-full text-center py-12">
-              <p className="text-gray-400 text-lg">Nenhum projeto encontrado nesta categoria.</p>
+              <p className="text-gray-400 text-lg">{t('portfolio.noProjects')}</p>
             </div>
           ) : (
             filteredProjects.map((project, index) => (
             <div
               key={project.id}
-              className="group relative bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20"
+              className={`group relative glass-effect rounded-2xl overflow-hidden border border-white/10 hover:border-indigo-500/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-indigo-500/10 ${
+                project.category === 'designer' ? 'cursor-pointer' : ''
+              }`}
               style={{ animationDelay: `${index * 100}ms` }}
+              onClick={() => {
+                if (project.category === 'designer') {
+                  setSelectedProject(project)
+                }
+              }}
             >
               {/* Imagem do projeto */}
-              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-purple-900/20 to-pink-900/20">
+              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-indigo-900/20 to-purple-900/20">
                 {/* Indicador de GIF */}
                 
                 <img
@@ -213,13 +235,24 @@ export default function Portfolio() {
                 
                 {/* Badge de categoria */}
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-purple-600 to-pink-600 text-white">
+                  <span className="px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
                     {categories.find(c => c.id === project.category)?.label}
                   </span>
                 </div>
 
-                {/* Link externo */}
-                {project.link && (
+                {/* Botão de ação - Modal para Designer, Link externo para outros */}
+                {project.category === 'designer' ? (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      setSelectedProject(project)
+                    }}
+                    className="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-900/80 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-purple-600 hover:scale-110"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <Maximize2 className="w-5 h-5" />
+                  </button>
+                ) : project.link && project.link !== '#' ? (
                   <a
                     href={project.link}
                     target="_blank"
@@ -228,12 +261,12 @@ export default function Portfolio() {
                   >
                     <ExternalLink className="w-5 h-5" />
                   </a>
-                )}
+                ) : null}
               </div>
 
               {/* Conteúdo do card */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300">
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-400 group-hover:to-purple-400 transition-all duration-300">
                   {project.title}
                 </h3>
                 <p className="text-gray-400 text-sm mb-4 leading-relaxed">
@@ -257,6 +290,48 @@ export default function Portfolio() {
           )}
         </div>
       </div>
+
+      {/* Modal para exibir imagens de Designer */}
+      {selectedProject && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+          onClick={() => setSelectedProject(null)}
+        >
+          <div
+            className="relative max-w-4xl max-h-[90vh] w-full bg-gray-900 rounded-2xl overflow-hidden border border-gray-700"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Botão de fechar */}
+            <button
+              onClick={() => setSelectedProject(null)}
+              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-gray-900/80 backdrop-blur-sm flex items-center justify-center text-white hover:bg-red-600 transition-all duration-300 hover:scale-110"
+              aria-label="Fechar modal"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Imagem */}
+            <div className="relative w-full h-full flex items-center justify-center p-8">
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="max-w-full max-h-[80vh] object-contain"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Informações do projeto */}
+            <div className="p-6 border-t border-gray-700 bg-gray-800/50">
+              <h3 className="text-2xl font-bold text-white mb-2">
+                {selectedProject.title}
+              </h3>
+              <p className="text-gray-400 leading-relaxed">
+                {selectedProject.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

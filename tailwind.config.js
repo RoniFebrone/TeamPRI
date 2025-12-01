@@ -9,21 +9,21 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          50: '#f0e7ff',
-          100: '#e0cfff',
-          200: '#c9a5ff',
-          300: '#b07aff',
-          400: '#9d5aff',
-          500: '#8b3aff',
-          600: '#7c2aff',
-          700: '#6b1aff',
-          800: '#5a0aff',
-          900: '#4a00ff',
+          50: '#eef2ff',
+          100: '#e0e7ff',
+          200: '#c7d2fe',
+          300: '#a5b4fc',
+          400: '#818cf8',
+          500: '#6366f1',
+          600: '#4f46e5',
+          700: '#4338ca',
+          800: '#3730a3',
+          900: '#312e81',
         },
-        neon: {
-          pink: '#ff00ff',
-          blue: '#00ffff',
-          purple: '#8b5cf6',
+        accent: {
+          purple: '#a855f7',
+          pink: '#ec4899',
+          indigo: '#6366f1',
         },
       },
       animation: {

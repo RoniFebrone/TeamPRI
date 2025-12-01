@@ -71,21 +71,21 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className={`group relative bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 ${
+              className={`group relative glass-effect rounded-2xl p-8 border border-white/10 hover:border-indigo-500/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-indigo-500/10 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               {/* Gradiente de fundo no hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 via-pink-600/10 to-blue-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/10 via-purple-600/10 to-pink-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
               <div className="relative z-10">
                 {/* Ícone com gradiente */}
-                <div className="mb-6 inline-flex p-4 rounded-xl bg-gradient-to-br from-purple-600 to-pink-600 text-white group-hover:scale-110 transition-transform duration-300">
+                <div className="mb-6 inline-flex p-4 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 text-white group-hover:scale-110 transition-transform duration-300">
                   {service.icon}
                 </div>
 
-                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300">
+                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-400 group-hover:to-purple-400 transition-all duration-300">
                   {service.title}
                 </h3>
 

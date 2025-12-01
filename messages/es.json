@@ -32,7 +32,70 @@
     "designer": "Diseñador",
     "landingPages": "Landing Pages",
     "websites": "Sitios Web",
-    "systems": "Sistemas"
+    "systems": "Sistemas",
+    "noProjects": "No se encontraron proyectos en esta categoría.",
+    "projects": {
+      "1": {
+        "title": "Identidad Visual - Aura Motors",
+        "description": "Creación completa de identidad visual moderna e impactante para una concesionaria."
+      },
+      "2": {
+        "title": "Identidad Visual - LE CÉLESTE",
+        "description": "Diseño completo de un sitio web para un restaurante francés, responsivo con enfoque en usabilidad y experiencia del usuario."
+      },
+      "4": {
+        "title": "Landing Page - CloudDesk Plataforma SaaS",
+        "description": "Una landing page moderna y completa para el SaaS ficticio CloudDesk, construida con Next.js 14, TailwindCSS y Framer Motion.",
+        "link": "https://lp-cloud-desk-fic.vercel.app"
+      },
+      "5": {
+        "title": "Landing Page - BoostMind",
+        "description": "Landing page moderna e impactante desarrollada con enfoque en conversión, experiencia del usuario y generar valor para el producto vendido.",
+        "link": "https://lp-captiacao-boost-ming-ai-fic.vercel.app"
+      },
+      "6": {
+        "title": "Landing Page - Minimalista",
+        "description": "Diseño minimalista y elegante con enfoque en simplicidad y claridad visual.",
+        "link": "https://lp-minimalista-training.vercel.app"
+      },
+      "7": {
+        "title": "Aura Motors",
+        "description": "Sitio completo para concesionaria de vehículos con catálogo, búsqueda avanzada, visualización 3D de vehículos y sistema de contacto.",
+        "link": "https://web-site-aura-motors.vercel.app"
+      },
+      "8": {
+        "title": "Restaurante LE CÉLESTE",
+        "description": "Sitio completo para restaurante con menú digital, sistema de reservas y galería de fotos.",
+        "link": "https://web-site-le-celeste.vercel.app"
+      }
+    }
+  },
+  "about": {
+    "title": "Sobre Nosotros",
+    "subtitle": "Conoce la historia detrás de Team PRI",
+    "story": {
+      "p1": "Team PRI nació con un propósito claro: crear experiencias digitales excepcionales para el mercado brasileño. Desde el principio, nuestro enfoque siempre ha sido entregar proyectos de alta calidad, combinando diseño creativo y desarrollo técnico de vanguardia.",
+      "p2": "Con el tiempo, construimos una trayectoria sólida, desarrollando proyectos que transformaron la presencia digital de diversas empresas en Brasil. Cada entrega nos trajo más experiencia, confianza y la certeza de que estábamos en el camino correcto.",
+      "p3": "Con tantas entregas exitosas y un portafolio cada vez más robusto, llegó el momento de expandir nuestros horizontes. Decidimos que era hora de llevar nuestras propuestas más allá de las fronteras de Brasil, compartiendo nuestra experiencia y pasión por lo que hacemos con clientes de todo el mundo."
+    },
+    "mission": {
+      "title": "Nuestra Misión",
+      "description": "Transformar ideas en realidad a través del diseño y la tecnología, creando soluciones digitales que conectan marcas y personas, ya sea en Brasil o en cualquier parte del mundo."
+    },
+    "features": {
+      "team": {
+        "title": "Equipo Joven y Talentoso",
+        "description": "Somos tres profesionales apasionados: un diseñador y dos desarrolladores full-stack, unidos por el deseo de crear lo mejor."
+      },
+      "focus": {
+        "title": "Enfoque en Brasil",
+        "description": "Nuestro viaje comenzó atendiendo al mercado brasileño, donde construimos nuestra reputación con entregas de excelencia."
+      },
+      "expansion": {
+        "title": "Expansión Internacional",
+        "description": "Ahora estamos listos para llevar nuestra experiencia a clientes de todo el mundo, manteniendo siempre el mismo compromiso con la calidad."
+      }
+    }
   },
   "testimonials": {
     "title": "Lo que dicen sobre nosotros",
@@ -73,6 +136,7 @@
     "navigation": "Navegación",
     "home": "Inicio",
     "services": "Servicios",
+    "about": "Sobre Nosotros",
     "portfolio": "Portafolio",
     "contact": "Contacto",
     "social": "Redes Sociales",

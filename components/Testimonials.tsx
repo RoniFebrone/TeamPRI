@@ -104,7 +104,7 @@ export default function Testimonials() {
           >
             {testimonials.map((testimonial, index) => (
               <SwiperSlide key={index}>
-                <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 h-full hover:border-purple-500 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20">
+                <div className="glass-effect rounded-2xl p-8 border border-white/10 h-full hover:border-indigo-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/10">
                   {/* Avatar */}
                   <div className="flex items-center mb-6">
                     <img

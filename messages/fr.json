@@ -32,7 +32,70 @@
     "designer": "Designer",
     "landingPages": "Pages d'Atterrissage",
     "websites": "Sites Web",
-    "systems": "Systèmes"
+    "systems": "Systèmes",
+    "noProjects": "Aucun projet trouvé dans cette catégorie.",
+    "projects": {
+      "1": {
+        "title": "Identité Visuelle - Aura Motors",
+        "description": "Création complète d'identité visuelle moderne et percutante pour un concessionnaire automobile."
+      },
+      "2": {
+        "title": "Identité Visuelle - LE CÉLESTE",
+        "description": "Conception complète d'un site web pour un restaurant français, responsive avec un accent sur l'utilisabilité et l'expérience utilisateur."
+      },
+      "4": {
+        "title": "Page d'Atterrissage - CloudDesk Plateforme SaaS",
+        "description": "Une page d'atterrissage moderne et complète pour le SaaS fictif CloudDesk, construite avec Next.js 14, TailwindCSS et Framer Motion.",
+        "link": "https://lp-cloud-desk-fic.vercel.app"
+      },
+      "5": {
+        "title": "Page d'Atterrissage - BoostMind",
+        "description": "Page d'atterrissage moderne et percutante développée avec un accent sur la conversion, l'expérience utilisateur et la génération de valeur pour le produit vendu.",
+        "link": "https://lp-captiacao-boost-ming-ai-fic.vercel.app"
+      },
+      "6": {
+        "title": "Page d'Atterrissage - Minimaliste",
+        "description": "Design minimaliste et élégant avec un accent sur la simplicité et la clarté visuelle.",
+        "link": "https://lp-minimalista-training.vercel.app"
+      },
+      "7": {
+        "title": "Aura Motors",
+        "description": "Site complet pour concessionnaire automobile avec catalogue, recherche avancée, visualisation 3D des véhicules et système de contact.",
+        "link": "https://web-site-aura-motors.vercel.app"
+      },
+      "8": {
+        "title": "Restaurant LE CÉLESTE",
+        "description": "Site complet pour restaurant avec menu numérique, système de réservation et galerie de photos.",
+        "link": "https://web-site-le-celeste.vercel.app"
+      }
+    }
+  },
+  "about": {
+    "title": "À Propos de Nous",
+    "subtitle": "Découvrez l'histoire derrière Team PRI",
+    "story": {
+      "p1": "Team PRI est née avec un objectif clair : créer des expériences numériques exceptionnelles pour le marché brésilien. Dès le début, notre objectif a toujours été de livrer des projets de haute qualité, en combinant design créatif et développement technique de pointe.",
+      "p2": "Au fil du temps, nous avons construit un parcours solide, développant des projets qui ont transformé la présence numérique de diverses entreprises au Brésil. Chaque livraison nous a apporté plus d'expérience, de confiance et la certitude que nous étions sur la bonne voie.",
+      "p3": "Avec tant de livraisons réussies et un portefeuille de plus en plus robuste, le moment est venu d'élargir nos horizons. Nous avons décidé qu'il était temps de porter nos propositions au-delà des frontières du Brésil, en partageant notre expertise et notre passion pour ce que nous faisons avec des clients du monde entier."
+    },
+    "mission": {
+      "title": "Notre Mission",
+      "description": "Transformer les idées en réalité grâce au design et à la technologie, en créant des solutions numériques qui connectent les marques et les personnes, que ce soit au Brésil ou n'importe où dans le monde."
+    },
+    "features": {
+      "team": {
+        "title": "Équipe Jeune et Talentueuse",
+        "description": "Nous sommes trois professionnels passionnés : un designer et deux développeurs full-stack, unis par le désir de créer le meilleur."
+      },
+      "focus": {
+        "title": "Focus sur le Brésil",
+        "description": "Notre parcours a commencé en servant le marché brésilien, où nous avons construit notre réputation avec des livraisons d'excellence."
+      },
+      "expansion": {
+        "title": "Expansion Internationale",
+        "description": "Maintenant, nous sommes prêts à apporter notre expertise à des clients du monde entier, en maintenant toujours le même engagement envers la qualité."
+      }
+    }
   },
   "testimonials": {
     "title": "Ce qu'ils disent de nous",
@@ -73,6 +136,7 @@
     "navigation": "Navigation",
     "home": "Accueil",
     "services": "Services",
+    "about": "À Propos",
     "portfolio": "Portfolio",
     "contact": "Contact",
     "social": "Réseaux Sociaux",

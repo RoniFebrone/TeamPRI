@@ -32,7 +32,70 @@
     "designer": "Designer",
     "landingPages": "Landing Pages",
     "websites": "Websites",
-    "systems": "Systems"
+    "systems": "Systems",
+    "noProjects": "No projects found in this category.",
+    "projects": {
+      "1": {
+        "title": "Visual Identity - Aura Motors",
+        "description": "Complete creation of modern and impactful visual identity for a car dealership."
+      },
+      "2": {
+        "title": "Visual Identity - LE CÉLESTE",
+        "description": "Complete website design for a French restaurant, responsive with focus on usability and user experience."
+      },
+      "4": {
+        "title": "Landing Page - CloudDesk SaaS Platform",
+        "description": "A modern and complete landing page for the fictional CloudDesk SaaS, built with Next.js 14, TailwindCSS and Framer Motion.",
+        "link": "https://lp-cloud-desk-fic.vercel.app"
+      },
+      "5": {
+        "title": "Landing Page - BoostMind",
+        "description": "Modern and impactful landing page developed with focus on conversion, user experience and generating value for the product sold.",
+        "link": "https://lp-captiacao-boost-ming-ai-fic.vercel.app"
+      },
+      "6": {
+        "title": "Landing Page - Minimalist",
+        "description": "Minimalist and elegant design with focus on simplicity and visual clarity.",
+        "link": "https://lp-minimalista-training.vercel.app"
+      },
+      "7": {
+        "title": "Aura Motors",
+        "description": "Complete website for car dealership with catalog, advanced search, 3D vehicle visualization and contact system.",
+        "link": "https://web-site-aura-motors.vercel.app"
+      },
+      "8": {
+        "title": "LE CÉLESTE Restaurant",
+        "description": "Complete website for restaurant with digital menu, reservation system and photo gallery.",
+        "link": "https://web-site-le-celeste.vercel.app"
+      }
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Learn the story behind Team PRI",
+    "story": {
+      "p1": "Team PRI was born with a clear purpose: to create exceptional digital experiences for the Brazilian market. From the beginning, our focus has always been to deliver high-quality projects, combining creative design and cutting-edge technical development.",
+      "p2": "Over time, we built a solid track record, developing projects that transformed the digital presence of various companies in Brazil. Each delivery brought us more experience, confidence, and the certainty that we were on the right path.",
+      "p3": "With so many successful deliveries and an increasingly robust portfolio, the time came to expand our horizons. We decided it was time to take our proposals beyond Brazil's borders, sharing our expertise and passion for what we do with clients around the world."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "Transform ideas into reality through design and technology, creating digital solutions that connect brands and people, whether in Brazil or anywhere in the world."
+    },
+    "features": {
+      "team": {
+        "title": "Young and Talented Team",
+        "description": "We are three passionate professionals: one designer and two full-stack developers, united by the desire to create the best."
+      },
+      "focus": {
+        "title": "Focus on Brazil",
+        "description": "Our journey began serving the Brazilian market, where we built our reputation with excellence in delivery."
+      },
+      "expansion": {
+        "title": "International Expansion",
+        "description": "Now we are ready to take our expertise to clients around the world, always maintaining the same commitment to quality."
+      }
+    }
   },
   "testimonials": {
     "title": "What they say about us",
@@ -73,6 +136,7 @@
     "navigation": "Navigation",
     "home": "Home",
     "services": "Services",
+    "about": "About",
     "portfolio": "Portfolio",
     "contact": "Contact",
     "social": "Social Media",

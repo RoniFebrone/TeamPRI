@@ -99,7 +99,7 @@ export default function Contact() {
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 flex items-center justify-center">
                   <Mail className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -111,7 +111,7 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 flex items-center justify-center">
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -123,7 +123,7 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 flex items-center justify-center">
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -136,12 +136,12 @@ export default function Contact() {
 
           {/* Formulário */}
           <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-            <form onSubmit={handleSubmit} className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+            <form onSubmit={handleSubmit} className="glass-effect rounded-2xl p-8 border border-white/10">
               <div className="space-y-6">
                 {/* Nome */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                    {t('form.name')} *
+                    {t('Nome')} *
                   </label>
                   <input
                     type="text"
@@ -150,8 +150,8 @@ export default function Contact() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all"
-                    placeholder={t('form.name')}
+                    className="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all"
+                    placeholder={t('Digite seu nome')}
                   />
                 </div>
 
@@ -159,7 +159,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                      {t('form.email')} *
+                      {t('Email')} *
                     </label>
                     <input
                       type="email"
@@ -168,13 +168,13 @@ export default function Contact() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all"
+                      className="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all"
                       placeholder="seu@email.com"
                     />
                   </div>
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
-                      {t('form.phone')}
+                      {t('Telefone')}
                     </label>
                     <input
                       type="tel"
@@ -182,8 +182,8 @@ export default function Contact() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all"
-                      placeholder="(11) 99999-9999"
+                      className="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all"
+                      placeholder="+55 (21) 97587-7461"
                     />
                   </div>
                 </div>
@@ -191,7 +191,7 @@ export default function Contact() {
                 {/* Serviço */}
                 <div>
                   <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-2">
-                    {t('form.service')} *
+                    {t('Serviço')} *
                   </label>
                   <select
                     id="service"
@@ -201,20 +201,20 @@ export default function Contact() {
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-700 text-white focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all"
                   >
-                    <option value="">{t('form.servicePlaceholder')}</option>
-                    <option value="designer">{t('form.services.designer')}</option>
-                    <option value="landing-page">{t('form.services.landingPage')}</option>
-                    <option value="website">{t('form.services.website')}</option>
-                    <option value="sistema">{t('form.services.system')}</option>
-                    <option value="identidade-visual">{t('form.services.branding')}</option>
-                    <option value="outro">{t('form.services.other')}</option>
+                    <option value="">{t('Selecione um serviço')}</option>
+                    <option value="designer">{t('Designer')}</option>
+                    <option value="landing-page">{t('Landing Page')}</option>
+                    <option value="website">{t('Website')}</option>
+                    <option value="sistema">{t('Sistema')}</option>
+                    <option value="identidade-visual">{t('Identidade Visual')}</option>
+                    <option value="outro">{t('Outro')}</option>
                   </select>
                 </div>
 
                 {/* Mensagem */}
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                    {t('form.message')} *
+                    {t('Mensagem')} *
                   </label>
                   <textarea
                     id="message"
@@ -224,7 +224,7 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all resize-none"
-                    placeholder={t('form.messagePlaceholder')}
+                    placeholder={t('Conte-nos um pouco sobre o seu projeto ou ideia')}
                   />
                 </div>
 
@@ -245,11 +245,11 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/40 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-700 via-pink-700 to-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                   <span className="relative flex items-center gap-2">
-                    {isSubmitting ? t('form.submitting') : t('form.submit')}
+                    {isSubmitting ? t('Enviando') : t('Enviar')}
                     <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </button>

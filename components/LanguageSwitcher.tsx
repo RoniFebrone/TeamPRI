@@ -31,7 +31,7 @@ export default function LanguageSwitcher() {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:border-purple-500 text-white transition-all duration-300 hover:bg-gray-800"
+        className="flex items-center gap-2 px-4 py-2 rounded-full glass-effect border border-white/10 hover:border-indigo-500/50 text-white transition-all duration-300"
         aria-label="Selecionar idioma"
       >
         <Globe className="w-4 h-4" />
@@ -48,14 +48,14 @@ export default function LanguageSwitcher() {
           ></div>
 
           {/* Dropdown */}
-          <div className="absolute right-0 mt-2 w-48 rounded-xl bg-gray-800 border border-gray-700 shadow-2xl z-20 overflow-hidden">
+          <div className="absolute right-0 mt-2 w-48 rounded-xl glass-effect border border-white/10 shadow-2xl z-20 overflow-hidden">
             {languages.map((lang) => (
               <button
                 key={lang.code}
                 onClick={() => handleLanguageChange(lang.code)}
                 className={`w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-gray-700 transition-colors duration-200 ${
                   locale === lang.code
-                    ? 'bg-gradient-to-r from-purple-600/20 to-pink-600/20 border-l-2 border-purple-500'
+                    ? 'bg-gradient-to-r from-indigo-600/20 to-purple-600/20 border-l-2 border-indigo-500'
                     : ''
                 }`}
               >
