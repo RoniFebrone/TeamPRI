@@ -1,11 +1,12 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 interface Testimonial {
   name: string
@@ -15,32 +16,34 @@ interface Testimonial {
   avatar: string
 }
 
-const testimonials: Testimonial[] = [
-  {
-    name: 'Maria Silva',
-    role: 'CEO',
-    company: 'TechStart',
-    text: 'A Team PRI transformou completamente nossa presença digital. O design e a funcionalidade superaram todas as nossas expectativas. Recomendo sem hesitação!',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Maria',
-  },
-  {
-    name: 'João Santos',
-    role: 'Diretor de Marketing',
-    company: 'Inovação Digital',
-    text: 'Trabalhar com a Team PRI foi uma experiência incrível. Profissionais extremamente competentes e criativos. Nosso site ficou moderno e performático.',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Joao',
-  },
-  {
-    name: 'Ana Costa',
-    role: 'Fundadora',
-    company: 'EcoSolutions',
-    text: 'A equipe da Team PRI entendeu perfeitamente nossa visão e transformou em realidade. O resultado foi além do que imaginávamos. Excelente trabalho!',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Ana',
-  },
-]
-
 export default function Testimonials() {
+  const { t, locale } = useLanguage()
   const [isVisible, setIsVisible] = useState(false)
+
+  // Depoimentos com traduções aplicadas
+  const testimonials = useMemo(() => [
+    {
+      name: t('testimonials.items.1.name'),
+      role: t('testimonials.items.1.role'),
+      company: t('testimonials.items.1.company'),
+      text: t('testimonials.items.1.text'),
+      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Maria',
+    },
+    {
+      name: t('testimonials.items.2.name'),
+      role: t('testimonials.items.2.role'),
+      company: t('testimonials.items.2.company'),
+      text: t('testimonials.items.2.text'),
+      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Joao',
+    },
+    {
+      name: t('testimonials.items.3.name'),
+      role: t('testimonials.items.3.role'),
+      company: t('testimonials.items.3.company'),
+      text: t('testimonials.items.3.text'),
+      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Ana',
+    },
+  ], [t, locale])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -71,10 +74,10 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
-            <span className="text-gradient">O que dizem sobre nós</span>
+            <span className="text-gradient">{t('testimonials.title')}</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Depoimentos de clientes que confiaram na Team PRI
+            {t('testimonials.subtitle')}
           </p>
         </div>
 

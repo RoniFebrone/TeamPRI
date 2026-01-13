@@ -146,11 +146,40 @@ Você pode personalizar:
 
 ## 🌍 Internacionalização
 
-O projeto está preparado para internacionalização com seletor de idioma. Para implementar traduções completas, você pode:
+O projeto possui suporte completo para múltiplos idiomas (Português, Inglês, Espanhol e Francês) usando um sistema de Context API customizado. As traduções estão em `messages/` e são gerenciadas pelo `LanguageContext`.
 
-1. Instalar `next-intl` ou similar
-2. Criar arquivos de tradução em `messages/`
-3. Atualizar o `LanguageSwitcher.tsx` para usar o sistema de i18n
+## 📧 Configuração de Email
+
+O formulário de contato está configurado para enviar emails para `teampri.business@gmail.com` usando Gmail com senha de app.
+
+### Como configurar:
+
+1. **Crie uma senha de app do Gmail:**
+   - Acesse sua conta Google: https://myaccount.google.com
+   - Vá em **Segurança** → **Verificação em duas etapas** (ative se ainda não estiver)
+   - Depois, vá em **Segurança** → **Senhas de app**
+   - Selecione **App**: "Email" e **Dispositivo**: "Outro (nome personalizado)"
+   - Digite "Team PRI Site" e clique em **Gerar**
+   - **Copie a senha gerada** (16 caracteres, sem espaços)
+
+2. **Crie o arquivo `.env.local` na raiz do projeto:**
+   ```env
+   GMAIL_USER=teampri.business@gmail.com
+   GMAIL_APP_PASSWORD=xxxx xxxx xxxx xxxx
+   ```
+   ⚠️ **Importante:** Cole a senha de app sem espaços (remova os espaços entre os grupos de 4 caracteres)
+
+3. **Reinicie o servidor de desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
+
+**Nota:** Sem a configuração das variáveis, o formulário ainda funcionará, mas apenas registrará os dados no console do servidor (modo desenvolvimento).
+
+### Dicas:
+- A senha de app é diferente da sua senha normal do Gmail
+- Não compartilhe a senha de app publicamente
+- Se precisar gerar uma nova senha de app, você pode revogar a antiga em **Senhas de app**
 
 ## 👥 Team PRI
 

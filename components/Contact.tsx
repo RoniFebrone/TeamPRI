@@ -46,27 +46,31 @@ export default function Contact() {
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
-    // Simula envio do formulário
-    // Aqui você pode integrar com um serviço como Formspree, EmailJS, ou sua API
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
 
-    // TODO: Implementar envio real do formulário
-    // Exemplo com EmailJS ou API:
-    // try {
-    //   await emailjs.send('service_id', 'template_id', formData)
-    //   setSubmitStatus('success')
-    // } catch (error) {
-    //   setSubmitStatus('error')
-    // }
-
-    setSubmitStatus('success')
-    setIsSubmitting(false)
-    
-    // Limpa o formulário após sucesso
-    setTimeout(() => {
-      setFormData({ name: '', email: '', phone: '', service: '', message: '' })
-      setSubmitStatus('idle')
-    }, 3000)
+      if (response.ok) {
+        setSubmitStatus('success')
+        // Limpa o formulário após sucesso
+        setFormData({ name: '', email: '', phone: '', service: '', message: '' })
+        setTimeout(() => {
+          setSubmitStatus('idle')
+        }, 5000)
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch (error) {
+      console.error('Erro ao enviar formulário:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -104,23 +108,13 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-white font-semibold mb-1">{t('contact.email')}</h4>
-                  <a href="mailto:ronifebrone9@gmail.com" className="text-gray-400 hover:text-purple-400 transition-colors">
-                    ronifebrone9@gmail.com
+                  <a href="mailto:teampri.business@gmail.com" className="text-gray-400 hover:text-purple-400 transition-colors">
+                    teampri.business@gmail.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 flex items-center justify-center">
-                  <Phone className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold mb-1">{t('contact.phone')}</h4>
-                  <a href="tel:+5511999999999" className="text-gray-400 hover:text-purple-400 transition-colors">
-                    +55 (21) 97587-7461
-                  </a>
-                </div>
-              </div>
+              
 
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 flex items-center justify-center">
@@ -141,7 +135,7 @@ export default function Contact() {
                 {/* Nome */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                    {t('Nome')} *
+                    {t('contact.form.name')} *
                   </label>
                   <input
                     type="text"
@@ -151,7 +145,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all"
-                    placeholder={t('Digite seu nome')}
+                    placeholder={t('contact.form.name')}
                   />
                 </div>
 
@@ -159,7 +153,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                      {t('Email')} *
+                      {t('contact.form.email')} *
                     </label>
                     <input
                       type="email"
@@ -174,7 +168,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
-                      {t('Telefone')}
+                      {t('contact.form.phone')}
                     </label>
                     <input
                       type="tel"
@@ -191,7 +185,7 @@ export default function Contact() {
                 {/* Serviço */}
                 <div>
                   <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-2">
-                    {t('Serviço')} *
+                    {t('contact.form.service')} *
                   </label>
                   <select
                     id="service"
@@ -201,20 +195,20 @@ export default function Contact() {
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-700 text-white focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all"
                   >
-                    <option value="">{t('Selecione um serviço')}</option>
-                    <option value="designer">{t('Designer')}</option>
-                    <option value="landing-page">{t('Landing Page')}</option>
-                    <option value="website">{t('Website')}</option>
-                    <option value="sistema">{t('Sistema')}</option>
-                    <option value="identidade-visual">{t('Identidade Visual')}</option>
-                    <option value="outro">{t('Outro')}</option>
+                    <option value="">{t('contact.form.servicePlaceholder')}</option>
+                    <option value="designer">{t('contact.services.designer')}</option>
+                    <option value="landing-page">{t('contact.services.landingPage')}</option>
+                    <option value="website">{t('contact.services.website')}</option>
+                    <option value="sistema">{t('contact.services.system')}</option>
+                    <option value="identidade-visual">{t('contact.services.branding')}</option>
+                    <option value="outro">{t('contact.services.other')}</option>
                   </select>
                 </div>
 
                 {/* Mensagem */}
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                    {t('Mensagem')} *
+                    {t('contact.form.message')} *
                   </label>
                   <textarea
                     id="message"
@@ -224,20 +218,20 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all resize-none"
-                    placeholder={t('Conte-nos um pouco sobre o seu projeto ou ideia')}
+                    placeholder={t('contact.form.messagePlaceholder')}
                   />
                 </div>
 
                 {/* Status de envio */}
                 {submitStatus === 'success' && (
                   <div className="p-4 rounded-lg bg-green-500/20 border border-green-500/50 text-green-400">
-                    {t('form.success')}
+                    {t('contact.form.success')}
                   </div>
                 )}
 
                 {submitStatus === 'error' && (
                   <div className="p-4 rounded-lg bg-red-500/20 border border-red-500/50 text-red-400">
-                    {t('form.error')}
+                    {t('contact.form.error')}
                   </div>
                 )}
 
@@ -249,7 +243,7 @@ export default function Contact() {
                 >
                   <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                   <span className="relative flex items-center gap-2">
-                    {isSubmitting ? t('Enviando') : t('Enviar')}
+                    {isSubmitting ? t('contact.form.submitting') : t('contact.form.submit')}
                     <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </button>

@@ -99,7 +99,27 @@
   },
   "testimonials": {
     "title": "Lo que dicen sobre nosotros",
-    "subtitle": "Testimonios de clientes que confiaron en Team PRI"
+    "subtitle": "Testimonios de clientes que confiaron en Team PRI",
+    "items": {
+      "1": {
+        "name": "Maria Silva",
+        "role": "CEO",
+        "company": "TechStart",
+        "text": "Team PRI transformó completamente nuestra presencia digital. El diseño y la funcionalidad superaron todas nuestras expectativas. ¡Lo recomiendo sin dudarlo!"
+      },
+      "2": {
+        "name": "João Santos",
+        "role": "Director de Marketing",
+        "company": "Innovación Digital",
+        "text": "Trabajar con Team PRI fue una experiencia increíble. Profesionales extremadamente competentes y creativos. Nuestro sitio se volvió moderno y performante."
+      },
+      "3": {
+        "name": "Ana Costa",
+        "role": "Fundadora",
+        "company": "EcoSolutions",
+        "text": "El equipo de Team PRI entendió perfectamente nuestra visión y la transformó en realidad. El resultado fue más allá de lo que imaginábamos. ¡Excelente trabajo!"
+      }
+    }
   },
   "contact": {
     "title": "Contáctanos",
